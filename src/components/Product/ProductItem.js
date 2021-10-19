@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { TOGGLE_CART } from "contexts/cart";
+import { useCartDispatch, useCartState } from "contexts/cart/CartContext";
 import { ReactComponent as CartIcon } from "assets/svg/cart.svg";
 
 function ProductItem({
@@ -12,14 +14,36 @@ function ProductItem({
   count = 1,
   show,
 }) {
+  const { cart } = useCartState();
+  const dispatch = useCartDispatch();
+
   const [pick, setPick] = useState(false);
+
+  useEffect(() => {
+    setPick(!!cart.find((item) => item.id === id));
+  }, [cart, id]);
+
+  const handleCartClick = () => {
+    dispatch({
+      type: TOGGLE_CART,
+      payload: {
+        id,
+        title,
+        coverImage,
+        price,
+        score,
+        availableCoupon,
+        count,
+      },
+    });
+  };
 
   return (
     <Wrapper id={id} show={show}>
       <ImageContainer>
         {availableCoupon && <CouponBadge>할인 쿠폰</CouponBadge>}
         <Image src={coverImage} alt={title} />
-        <CartBadge pick={pick}>
+        <CartBadge pick={pick} onClick={handleCartClick}>
           <CartIcon />
         </CartBadge>
       </ImageContainer>
@@ -93,8 +117,7 @@ const CartBadge = styled.div`
   }
 
   &:hover {
-    background-color: ${({ pick, theme }) => (pick ? theme.colors.black : theme.colors.red)};
-    opacity: ${({ pick }) => (pick ? 0.2 : 1)};
+    border: 2px solid ${({ pick, theme }) => (pick ? theme.colors.white : theme.colors.black)};
   }
 `;
 
