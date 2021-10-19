@@ -1,21 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
+import CartCounter from "components/Cart/CartCounter";
+import { useCartState } from "contexts/cart/CartContext";
 import { ROUTES } from "utils/constants";
 import { ReactComponent as CartIcon } from "assets/svg/cart.svg";
-import CartCounter from "components/Cart/CartCounter";
 
 function Header() {
   const { HOME, CART } = ROUTES;
+  const { cart } = useCartState();
+  const history = useHistory();
+
+  const CartClick = (e) => {
+    e.preventDefault();
+    cart.length > 0 ? history.push(CART) : alert("장바구니에 등록해주세요");
+  };
 
   return (
     <HeaderMain>
       <HeaderWrapper>
-        <Link to={HOME}>HOME</Link>
-        <Link to={CART}>
+        <Link to={HOME}>
+          <h1>SHOPPING & COUPON</h1>
+        </Link>
+        <Link to={CART} onClick={CartClick}>
           <CartWrapper>
             <CartIcon />
-            <CartCounter />
+            {cart.length > 0 && <CartCounter count={cart.length} />}
           </CartWrapper>
         </Link>
       </HeaderWrapper>
@@ -41,6 +51,10 @@ const HeaderWrapper = styled.div`
   width: 80%;
   height: 5rem;
   margin: 0 auto;
+
+  h1 {
+    font-weight: 600;
+  }
 `;
 
 const CartWrapper = styled.div`

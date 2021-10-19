@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { useCartState } from "contexts/cart/CartContext";
 
-const CartCounter = () => {
-  const { cart } = useCartState();
+const CartCounter = ({ count }) => {
   return (
     <CircleWrapper>
-      <span>{cart.length}</span>
+      <span>{count}</span>
     </CircleWrapper>
   );
 };

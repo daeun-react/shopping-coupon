@@ -32,7 +32,7 @@ function CartTable() {
   const handleMinus = (id) => {
     const current = cart.find((item) => item.id === id);
     if (current && Number(current.count) === 1) {
-      alert("1 이상 선택되어야 합니다.");
+      alert("1개 이상 선택되어야 합니다.");
       return;
     }
     dispatch({
@@ -115,7 +115,7 @@ function CartTable() {
 export default CartTable;
 
 const Table = styled.table`
-  width: 80%;
+  width: 100%;
 `;
 
 const Thead = styled.thead`
