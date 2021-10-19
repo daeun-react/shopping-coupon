@@ -5,3 +5,5 @@ export const PLUS_CART_COUNT = "PLUS_CART_COUNT";
 
 export const TOGGLE_CHECK_ALL = "TOGGLE_CHECK_ALL";
 export const TOGGLE_CHECK = "TOGGLE_CHECK";
+
+export const SET_COUPON = "SET_COUPON";

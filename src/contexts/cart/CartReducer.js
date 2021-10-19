@@ -5,6 +5,7 @@ import {
   PLUS_CART_COUNT,
   TOGGLE_CHECK_ALL,
   TOGGLE_CHECK,
+  SET_COUPON,
 } from "contexts/cart";
 
 export function cartReducer(state, action) {
@@ -57,6 +58,12 @@ export function cartReducer(state, action) {
         cart: state.cart.map((item) =>
           item.id === action.payload ? { ...item, checked: !item.checked } : item
         ),
+      };
+
+    case SET_COUPON:
+      return {
+        ...state,
+        coupon: action.payload,
       };
 
     default:

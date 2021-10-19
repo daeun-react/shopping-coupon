@@ -3,6 +3,7 @@ import { cartReducer } from "contexts/cart/CartReducer";
 
 const initialState = {
   cart: [],
+  coupon: {},
 };
 
 const CartStateContext = createContext(null);
