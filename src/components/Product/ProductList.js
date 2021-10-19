@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Product from "components/Product/ProductItem";
+import ProductItem from "components/Product/ProductItem";
+import { cacheImages } from "utils/cacheImages";
 
 function ProductList({ currentIndex, products }) {
+  useEffect(() => {
+    const imgs = products.map((item) => item.coverImage);
+    cacheImages(imgs);
+  }, [products]);
+
   return (
     <Wrapper>
       {products.map(({ id, title, coverImage, price, score, availableCoupon, count }, idx) => (
-        <Product
+        <ProductItem
           key={id}
           id={id}
           title={title}
