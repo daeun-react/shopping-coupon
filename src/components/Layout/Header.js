@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ROUTES } from "utils/constants";
 import { ReactComponent as CartIcon } from "assets/svg/cart.svg";
+import CartCounter from "components/Cart/CartCounter";
 
 function Header() {
   const { HOME, CART } = ROUTES;
@@ -12,7 +13,10 @@ function Header() {
       <HeaderWrapper>
         <Link to={HOME}>HOME</Link>
         <Link to={CART}>
-          <CartIcon />
+          <CartWrapper>
+            <CartIcon />
+            <CartCounter />
+          </CartWrapper>
         </Link>
       </HeaderWrapper>
     </HeaderMain>
@@ -25,7 +29,7 @@ const HeaderMain = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 999;
   background: ${({ theme }) => theme.colors.white};
   border-bottom: solid 1px ${({ theme }) => theme.colors.lightGray};
 `;
@@ -37,4 +41,8 @@ const HeaderWrapper = styled.div`
   width: 80%;
   height: 5rem;
   margin: 0 auto;
+`;
+
+const CartWrapper = styled.div`
+  position: relative;
 `;
