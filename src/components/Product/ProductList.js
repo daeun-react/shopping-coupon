@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ProductItem from "components/Product/ProductItem";
 import { cacheImages } from "utils/cacheImages";
