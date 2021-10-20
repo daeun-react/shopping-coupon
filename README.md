@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# 쇼핑몰 상품 목록 및 장바구니 사이트 만들기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [🔗 배포 링크](https://shopping-coupon.netlify.app/)
 
-## Available Scripts
+## 시연 영상
 
-In the project directory, you can run:
+![시연 영상](https://user-images.githubusercontent.com/67173064/138022930-02a034e6-078f-42d3-96a4-a9dd632c3303.gif)
 
-### `yarn start`
+## 요구 사항 및 구현 기능
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] **상품 목록 페이지**(route: /products)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  - [x] 가격과 사진, 상품 제목 표시
+  - [x] score를 기준으로 내림차순으로 정렬하여 5개씩 제시 (**`Carousel 기능`** 구현)
+  - [x] 각 상품에 장바구니 버튼으로 담기/빼기 기능 구현
 
-### `yarn test`
+- [x] **장바구니 페이지** (route: /cart)
+  - [x] 장바구니에는 최대 3개까지 담도록 구현할 것
+  - [x] 장바구니의 상품 중, 결제에 포함할 상품을 체크박스로 구현할 것
+  - [x] 장바구니에 담긴 각 상품의 수량을 선택하도록 구현할 것 (단, 최소 1개의 수량이 지정되도록 할 것)
+  - [x] 장바구니에 담긴 전체 상품의 최종 결제 금액에 대하여 **`쿠폰 기능`** 구현
+    - [x] 정액 할인(amount) - {discountAmount}원 만큼 할인
+    - [x] 비율 할인(rate) - {discountRate}% 만큼 할인
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 설치 및 시작 방법
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+- git clone https://github.com/daeun-react/shopping-coupon.git
+- cd shopping-coupon
+- npm install
+- npm start
+```
